@@ -4,3 +4,35 @@
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
+int ReadNumber(string message)
+{
+    Console.WriteLine(message);
+    return Convert.ToInt32(Console.ReadLine());
+}
+
+int[] Array(int length, int min, int max)
+{
+    int[] array = new int[length];
+    Random rand = new Random();
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = rand.Next(min, max + 1);
+    }
+    return array;
+}
+
+int length = ReadNumber("Введи длину массива: ");
+int min = ReadNumber("Введи минимальное число в массиве: ");
+int max = ReadNumber("введи максимальное число в массиве: ");
+
+int[] array = Array(length, min, max);
+
+Console.WriteLine(string.Join(", ", array));
+
+int sum = 0;
+for (int i = 1; i < array.Length; i += 2)
+{
+    sum += array[i];
+}
+
+Console.WriteLine($"Сумма элементов стоящих на нечетных позициях = {sum}");
