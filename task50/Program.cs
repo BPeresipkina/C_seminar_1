@@ -41,9 +41,9 @@ int ReadNumber(string message)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-Random rand = new Random();
-int line = rand.Next(2, 11);
-int column = rand.Next(2, 11);
+//Random rand = new Random();
+int line = 3;//rand.Next(2, 11);
+int column = 4;//rand.Next(2, 11);
 
 int[,] massiv = GetRandomArray(line, column);
 
@@ -60,6 +60,6 @@ if (lineUser > massiv.GetLength(0) || columnUser > massiv.GetLength(1))
 }
 else
 {
-    int result = massiv[lineUser, columnUser];
+    int result = massiv[lineUser - 1, columnUser - 1];
     Console.WriteLine(result);
 }
